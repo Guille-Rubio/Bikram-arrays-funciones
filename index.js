@@ -106,10 +106,12 @@ function obtenerPares(array) {
 
 
 //12.- Crear la función pintarArray que acepte como argumento un array y devuelva una cadena de texto Array entrada: [0, 1, 2] String salida: '[0, 1, 2]'
+
 function pintarArray(array) {
-    let result = '[' + array.join() + ']';
+    let result = '[' + array.join(", ") + ']';
     return result;
 }
+
 
 
 //13.- Crear la función arrayMapi que acepte como argumento un Array y una función y devuelva un array en el que se haya aplicado la función a cada elemento del array
@@ -183,16 +185,35 @@ const arrayFunciones = [suma, resta, multiplicacion];
 
 //23.- Crear la función ordenarArray2 que acepta como argumento un array de números y devuelva un array ordenado de mayor a menor
 
-
-function ordenarArray2(array) {
-    const orderedArray = [];
-    //while (array.length > 0) {
-    for (i = 0; i < array.length; i++) {
-        if (array[i] <= Math.min(array)) {
-            orderedArray.unshift(array[i]);
-        }
-    }
+function compare(a, b) {
+    return a - b;
 }
+
+function ordenarArray2(arr) {
+    let orderedArray = arr.sort(compare)
+    return orderedArray;
+
+}
+
+/*function ordenarArray2(array) {
+    const orderedArray = [];
+
+    for (i = 0; i < array.length; i++) {
+
+        for (j = 0; j < array.length; j++) {
+            let esMayor = [];
+            if (array[i] >= array[j]) { esMayor.push("mayor") }
+            else { esMayor.push("menor") }
+
+        }
+        if (!esMayor.includes("menor")) {
+            orderedArray.push(array[i]);
+        }
+
+    }
+    console.log(orderedArray);
+}
+*/
 
 function ordenar(arr) {
     const arrayOrdenado = [];//resultado ordenado
@@ -204,18 +225,14 @@ function ordenar(arr) {
                 //si el numero comparado es menor o igual
                 comparación.push("menor");
             }
-            else { comparacion.push("mayor");}
-            if (comparacion.includes("menor")){
+            else { comparacion.push("mayor"); }
+            if (comparacion.includes("menor")) {
             } else { arrayOrdenado.push(comparado); }
 
 
         }
     }
 }
-console.log(arrayOrdenado);
-
-
-
 
 //24.- Crear la función obtenerImpares que acepta como argumento un array de números y devuelva un array con los elementos impares
 
